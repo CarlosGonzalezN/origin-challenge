@@ -1,3 +1,4 @@
+//Usando la funciones declaradas en el GlobaState aca se decide que funcion ejecuta
 export const AppReducer = (state: any, action: any) => {
   switch (action.type) {
     case "ADD_STOCKS":

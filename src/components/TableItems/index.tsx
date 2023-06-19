@@ -10,7 +10,7 @@ interface StockData {
 interface TableItemsProps {
   data: StockData;
 }
-
+//Itera los items del cuadro de favoritos
 const TableItems: React.FC<TableItemsProps> = ({ data }) => {
   const { deleteStocks }: any = useGlobalState();
 

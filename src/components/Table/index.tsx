@@ -13,6 +13,7 @@ interface TableComponentProps {
   data: StockData[];
 }
 
+//Muestra los favoritos seleccionados
 const TableComponent: React.FC<TableComponentProps> = () => {
   const { stocksData } = useGlobalState();
 

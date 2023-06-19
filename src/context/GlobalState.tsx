@@ -7,10 +7,9 @@ interface State {
 
 const initialState: State = { stocksData: [] };
 
-const userName = localStorage.getItem("user");
-
 export const Context = createContext<any>(null);
 
+//En este componente estan las funciones para agregar o quitar los elementos de la lista de favoritos usando useReduce y acciendolas accecibles desde el contexto de la aplicacion
 export const GloblaProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(AppReducer, initialState, () => {
     const localData = localStorage.getItem("selectedItems");
@@ -41,7 +40,6 @@ export const GloblaProvider = ({ children }: any) => {
         stocksData: state.stocksData,
         addStocks,
         deleteStocks,
-        userName,
       }}
     >
       {children}

@@ -6,7 +6,7 @@ interface FormValue {
   username: string;
   password: string;
 }
-
+//formulario para ingresar
 const LoginForm: React.FC = () => {
   const [formValue, setFormValue] = useState<FormValue>({
     username: "",
@@ -21,7 +21,7 @@ const LoginForm: React.FC = () => {
       [name]: value,
     }));
   };
-
+  //valida el usario y password
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     validate(formValue)

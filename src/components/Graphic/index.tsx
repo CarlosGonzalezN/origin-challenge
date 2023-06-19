@@ -8,11 +8,10 @@ interface Value {
 
 interface GraphicProps {
   data: Value[];
+  logo: string;
 }
 
-const Graphic: React.FC<GraphicProps> = ({ data }) => {
-  console.log(data);
-
+const Graphic: React.FC<GraphicProps> = ({ data, logo }) => {
   const values = data;
   const closingValues = values.map((value) => ({
     x: Date.parse(value.datetime),
@@ -21,13 +20,12 @@ const Graphic: React.FC<GraphicProps> = ({ data }) => {
   }));
 
   useEffect(() => {
-    // Configuración del gráfico
     const options: Highcharts.Options = {
       title: {
-        text: "Valores de Cierre",
+        text: logo,
       },
       xAxis: {
-        type: "datetime", // Cambiado a tipo datetime
+        type: "datetime",
       },
       yAxis: {
         title: {
@@ -43,7 +41,6 @@ const Graphic: React.FC<GraphicProps> = ({ data }) => {
       ],
     };
 
-    // Crear el gráfico
     Highcharts.chart("chart-container", options);
   }, [data]);
 

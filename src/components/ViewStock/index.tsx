@@ -18,12 +18,13 @@ const ViewStock: React.FC = () => {
   const [endDate, setEndDate] = useState(
     new Date().toISOString().slice(0, -14)
   );
-  const [interval, setInterval] = useState("1min");
+  const [selectedInterval, setSelectedInterval] = useState("1min");
   const userName = localStorage.getItem("user");
+
   const loadDataTime = async () => {
     const data = {
       symbol: stockData.symbol,
-      interval: interval,
+      interval: selectedInterval,
       startDate: `${startDate}%2009:48:00`,
       endDate: `${endDate}%2009:48:00`,
       realTime: realTime,
@@ -109,9 +110,9 @@ const ViewStock: React.FC = () => {
               <select
                 id="selectInterval"
                 className="border border-gray-300 rounded p-2"
-                value={interval}
+                value={selectedInterval}
                 onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-                  setInterval(e.target.value)
+                  setSelectedInterval(e.target.value)
                 }
               >
                 <option value="1min">1min</option>
@@ -128,7 +129,11 @@ const ViewStock: React.FC = () => {
           </button>
         </div>
       </form>
-      {dataTimeStock ? <Graphic data={dataTimeStock} /> : <></>}
+      {dataTimeStock ? (
+        <Graphic data={dataTimeStock} logo={stockData.symbol} />
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

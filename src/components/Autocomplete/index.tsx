@@ -5,7 +5,7 @@ import { useGlobalState } from "../../hooks/useContextState";
 interface StockItem {
   symbol: string;
 }
-
+//componete para seleccionar una sigla
 const InputButtonComponent: React.FC = () => {
   const [inputValue, setInputValue] = useState("");
   const [data, setData] = useState<StockItem[]>([]);
@@ -16,7 +16,7 @@ const InputButtonComponent: React.FC = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setInputValue(e.target.value);
   };
-
+  //agraga el valor seleccionado a  la tabla de faboritos
   const handleButtonClick = () => {
     const selectedItem = filteredData.find(
       (item) => item.symbol === inputValue
@@ -25,7 +25,7 @@ const InputButtonComponent: React.FC = () => {
       addStocks(selectedItem);
     }
   };
-
+  //trae los datos para llenar el desplegable
   async function loadData() {
     const dataStocks = await getStocks();
     if (dataStocks) {
@@ -33,7 +33,7 @@ const InputButtonComponent: React.FC = () => {
       setLoad(false);
     }
   }
-
+  //al carrgar el compomente ejecuta la fucnion que carga el desplegable
   useEffect(() => {
     loadData();
   }, []);
