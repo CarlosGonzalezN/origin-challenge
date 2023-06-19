@@ -33,7 +33,7 @@ const LoginForm: React.FC = () => {
             localStorage.setItem("user", formValue.username);
             navigate("/home");
           } else {
-            alert("Verifica los datos ingresados");
+            window.alert("Verifica los datos ingresados");
           }
         },
         (error) => {
