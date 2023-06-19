@@ -5,11 +5,6 @@ interface State {
   stocksData: any[];
 }
 
-interface Action {
-  type: string;
-  payload?: any;
-}
-
 const initialState: State = { stocksData: [] };
 
 const userName = localStorage.getItem("user");
