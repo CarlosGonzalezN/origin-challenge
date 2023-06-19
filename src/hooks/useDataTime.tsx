@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface StockData {
   symbol: string;
@@ -36,6 +37,9 @@ export async function getDataTime(data: StockData): Promise<StockValue[]> {
     return response.data.values;
   } catch (error) {
     console.log(error);
+
+    const navigate = useNavigate();
+    navigate("/error");
     throw error; // Opcional: relanzar el error para manejarlo en otro lugar
   }
 }

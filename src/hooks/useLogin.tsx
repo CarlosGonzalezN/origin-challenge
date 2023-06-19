@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface UserData {
   username: string;
@@ -19,6 +20,8 @@ export async function validate(data: UserData): Promise<AxiosResponse> {
     return response;
   } catch (error) {
     console.log(error);
+    const navigate = useNavigate();
+    navigate("/error");
     throw error;
   }
 }

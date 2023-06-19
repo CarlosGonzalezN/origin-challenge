@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface StockData {
   symbol: string;
@@ -16,6 +17,8 @@ export async function getStocks(): Promise<StockData[]> {
     return response.data.data;
   } catch (error) {
     console.log(error);
+    const navigate = useNavigate();
+    navigate("/error");
     return [];
   }
 }
