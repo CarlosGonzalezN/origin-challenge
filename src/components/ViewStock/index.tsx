@@ -2,7 +2,7 @@ import React, { useState, FormEvent, ChangeEvent } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../Navbar";
 import Graphic from "../Graphic";
-import getDataTime from "../../hooks/useDataTime";
+import { getDataTime } from "../../hooks/useDataTime";
 
 interface StockData {
   symbol: string;

@@ -10,9 +10,13 @@ interface StockData {
 interface TableItemsProps {
   data: StockData;
 }
+interface DeleteStocksFunction {
+  (symbol: string): void;
+}
 //Itera los items del cuadro de favoritos
 const TableItems: React.FC<TableItemsProps> = ({ data }) => {
-  const { deleteStocks }: any = useGlobalState();
+  const { deleteStocks }: { deleteStocks: DeleteStocksFunction } =
+    useGlobalState();
 
   const handleDeleteStock = () => {
     deleteStocks(data.symbol);

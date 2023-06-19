@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = ({ logo }: any) => {
+interface NavbarProps {
+  logo: string;
+  userName: string | null;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ logo }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const handleMenuToggle = () => {

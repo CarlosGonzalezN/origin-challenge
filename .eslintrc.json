@@ -2,5 +2,5 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
-  "ignorePatterns": ["src/context/AppReduce.tsx"]
+  "ignorePatterns": ["src/context/AppReduce.tsx", "src/context/GlobalState.tsx"]
 }

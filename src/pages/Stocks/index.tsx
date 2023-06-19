@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   return (
     <GloblaProvider>
       <>
-        <Navbar />
+        <Navbar logo="" userName="" />
         <div className="container">
           <div className="flex justify-center items-center m-6">
             <InputButtonComponent />

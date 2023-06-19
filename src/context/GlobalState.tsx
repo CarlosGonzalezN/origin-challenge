@@ -2,7 +2,7 @@ import { createContext, useReducer, useEffect } from "react";
 import { AppReducer } from "./AppReduce";
 
 interface State {
-  stocksData: any[];
+  stocksData: [];
 }
 
 const initialState: State = { stocksData: [] };

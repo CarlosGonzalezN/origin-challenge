@@ -27,7 +27,7 @@ const TableComponent: React.FC<TableComponentProps> = () => {
         </tr>
       </thead>
       <tbody>
-        {stocksData.map((stockData: any) => (
+        {stocksData.map((stockData: StockData) => (
           <TableItems data={stockData} key={stockData.symbol} />
         ))}
       </tbody>

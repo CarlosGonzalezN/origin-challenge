@@ -1,10 +1,17 @@
-import axios from "axios";
-const url: any = process.env.REACT_APP_URL_LOGIN;
+import axios, { AxiosResponse } from "axios";
+
+interface UserData {
+  username: string;
+  password: string;
+}
+
+type Url = string;
 
 ////funcion que se conecta al API-ORIGIN-CHALLENGE y valida al usuario
-export async function validate(data: any) {
+export async function validate(data: UserData): Promise<AxiosResponse> {
   try {
-    const response = await axios({
+    const url: Url = process.env.REACT_APP_URL_LOGIN as Url;
+    const response: AxiosResponse = await axios({
       method: "POST",
       url: url,
       data: data,
@@ -12,5 +19,6 @@ export async function validate(data: any) {
     return response;
   } catch (error) {
     console.log(error);
+    throw error;
   }
 }
